@@ -1,4 +1,25 @@
 FROM centos:7
+
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="ansible-ci" \
+      org.label-schema.description="Image centos 7 with ansible for CI test" \
+      org.label-schema.url="http://andradaprieto.es" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/jandradap/ansible-ci" \
+      org.label-schema.vendor="Jorge Andrada Prieto" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0" \
+      maintainer="Jorge Andrada Prieto <jandradap@gmail.com>" \
+      org.label-schema.docker.cmd="docker run -it -v /sys/fs/cgroup:/sys/fs/cgroup:ro jorgeandrada/ansible-ci:centos7systemd bash"
+
+RUN yum install -y epel-release \
+  && yum makecache fast \
+  && yum install -y ansible \
+  && yum clean all
+
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
