@@ -18,6 +18,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 RUN yum install -y epel-release \
   && yum makecache fast \
   && yum install -y ansible \
+  libselinux-python \
   && yum clean all
 
 ENV container docker
