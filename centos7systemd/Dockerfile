@@ -23,6 +23,7 @@ RUN yum install -y epel-release \
   selinux-policy \
   firewalld \
   jq \
+  git \
   && yum clean all
 
 ENV container docker
