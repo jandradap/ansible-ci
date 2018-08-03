@@ -21,4 +21,5 @@ RUN yum install -y epel-release \
   libselinux-python \
   util-linux \
   selinux-policy \
+  jq \
   && yum clean all
