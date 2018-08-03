@@ -22,4 +22,5 @@ RUN yum install -y epel-release \
   util-linux \
   selinux-policy \
   firewalld \
+  jq \
   && yum clean all
