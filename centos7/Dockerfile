@@ -24,4 +24,6 @@ RUN yum install -y epel-release \
   firewalld \
   jq \
   git \
+  python2-jmespath \
+  python2-jsonpath \
   && yum clean all
