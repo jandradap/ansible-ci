@@ -38,4 +38,7 @@ RUN yum install -y epel-release \
     PyYAML \
     paramiko \
     cryptography \
-&& yum clean all
+  && yum clean all \
+  && mkdir /etc/ansible
+
+COPY ../ansible.cfg /etc/ansible/
