@@ -17,28 +17,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN yum install -y epel-release \
   && yum makecache fast \
-  && yum install -y \
+  && yum install -y ansible \
     libselinux-python \
     util-linux \
     selinux-policy \
-    firewalld \
     jq \
     git \
-    python2-pip \
-    ca-certificates \
-    sshpass \
-    openssl \
-  && pip install --upgrade \
-    setuptools \
-    pip \
-    ansible \
-    jmespath \
-    jsonpath \
-    jinja2 \
-    PyYAML \
-    paramiko \
-    cryptography \
-  && yum clean all \
-  && mkdir /etc/ansible
-
-COPY ansible.cfg /etc/ansible/
+  && yum clean all
