@@ -17,13 +17,23 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN yum install -y epel-release \
   && yum makecache fast \
-  && yum install -y ansible \
-  libselinux-python \
-  util-linux \
-  selinux-policy \
-  firewalld \
-  jq \
-  git \
-  python2-jmespath \
-  python2-jsonpath \
-  && yum clean all
+  && yum install -y \
+    libselinux-python \
+    util-linux \
+    selinux-policy \
+    firewalld \
+    jq \
+    git \
+    python2-pip \
+    ca-certificates \
+  && pip install --upgrade \
+    setuptools \
+    pip \
+    ansible \
+    jmespath \
+    jsonpath \
+    jinja2 \
+    PyYAML \
+    paramiko \
+    cryptography \
+&& yum clean all
