@@ -41,4 +41,4 @@ RUN yum install -y epel-release \
   && yum clean all \
   && mkdir /etc/ansible
 
-COPY ../ansible.cfg /etc/ansible/
+COPY ansible.cfg /etc/ansible/

@@ -41,7 +41,7 @@ RUN yum install -y epel-release \
   && yum clean all \
   && mkdir /etc/ansible
 
-COPY ../ansible.cfg /etc/ansible/
+COPY ansible.cfg /etc/ansible/
 
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
