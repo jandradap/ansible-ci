@@ -23,4 +23,5 @@ RUN yum install -y epel-release \
     selinux-policy \
     jq \
     git \
+    sudo \
   && yum clean all

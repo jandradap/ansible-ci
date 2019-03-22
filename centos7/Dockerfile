@@ -28,6 +28,7 @@ RUN yum install -y epel-release \
     ca-certificates \
     sshpass \
     openssl \
+    sudo \
   && pip install --upgrade \
     setuptools \
     pip \
